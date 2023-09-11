@@ -1,5 +1,6 @@
 export * from './lib/Consultant';
 export * from './lib/Department';
+export * from './lib/components/InputModal';
 
 export const CustomModalStyles = {
   content: {

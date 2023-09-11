@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   createColumnHelper,
   flexRender,
@@ -13,12 +13,12 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Edit from '../lib/images/edit.svg';
 import Delete from '../lib/images/delete.svg';
-import UserAvatar from '../lib/images/person.svg';
+
 import Cancel from '../lib/images/Vector.svg';
+import { Inputmodal } from './components/InputModal';
 
 import Modal from 'react-modal';
 import { CustomModalStyles } from '..';
-import { InputModal } from './components/InputModal';
 
 type Person = {
   id: number;
@@ -97,19 +97,6 @@ export const Consultant: React.FC = () => {
 
   const [openDeletePopUp, setOpenDeletePopUp] = useState(false);
 
-  const imgInput = useRef<HTMLInputElement>(null);
-  const [preview, setPreview] = useState<string | null>(null);
-  // const [selectedFile, setSelectedFile] = useState();
-
-  const handleImageUpload = (e: any) => {
-    if (!e.target.files || e.target.files.length === 0) {
-      return;
-    }
-
-    const objectUrl = URL.createObjectURL(e.target.files[0]);
-    setPreview(objectUrl);
-  };
-
   return (
     <>
       <Modal
@@ -119,91 +106,7 @@ export const Consultant: React.FC = () => {
           setOpenEditPopup(false);
         }}
       >
-        <div className="flex flex-col justify-center items-center p-[15px] gap-[20px]">
-          <div className="text-l font-semibold text-[#042F48] text-center mt-8">
-            Edit Consultant
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <div
-              className="border-2  overflow-hidden flex items-center justify-center rounded-[50%] h-20 w-20 "
-              onClick={() => {
-                imgInput.current?.click();
-              }}
-            >
-              <img
-                src={preview ? preview : UserAvatar}
-                alt="user-avatar"
-                className="rounded-[50%]"
-              />
-            </div>
-            <input
-              type="file"
-              ref={imgInput}
-              className="hidden"
-              onChange={handleImageUpload}
-            />
-            <div className="text-[#B7E2FB]">Upload Picture</div>
-
-            <span className="text-[10px] text-center">
-              *Note photo should be less than 2mb and should be in jpeg or png
-              format
-            </span>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="flex gap-1 flex-col">
-              <label
-                htmlFor="nameInput"
-                className="text-[16px] font-normal text-[#042F48]"
-              >
-                Name
-              </label>
-              <input
-                className="w-[343px] h-[40px] border-[#C5C5C5] border-[1px] border-solid rounded px-3"
-                placeholder="Name"
-                id="nameInput"
-              />
-            </div>
-            <div className="flex gap-1 flex-col">
-              <label htmlFor="nameInput" className="text-[16px] text-[#042F48]">
-                Expertise
-              </label>
-              <input
-                className="w-[343px] h-[40px] border-[#C5C5C5] border-[1px] border-solid rounded px-3"
-                placeholder="Select Expertise"
-                id="nameInput"
-              />
-            </div>
-            <div className="flex gap-1 flex-col">
-              <label htmlFor="nameInput" className="text-[16px] text-[#042F48]">
-                Experience
-              </label>
-              <input
-                className="w-[343px] h-[40px] border-[#C5C5C5] border-[1px] border-solid rounded px-3"
-                placeholder="Experience in years"
-                id="nameInput"
-              />
-            </div>
-          </div>
-
-          <div className="flex gap-1 mt-[4px]">
-            <button
-              className="w-[170px] h-[40px] bg-[#074E78] text-white font-semibold border-[#074E78] border-[1px] border-solid rounded"
-              onClick={() => {
-                setOpenEditPopup(false);
-              }}
-            >
-              Confirm
-            </button>
-            <button
-              className="w-[170px] h-[40px] bg-white text-[#074E78] font-semibold border-[#074E78] border-[1px] border-solid rounded"
-              onClick={() => {
-                setOpenEditPopup(false);
-              }}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <Inputmodal editData={openEditPopup} setData={setOpenEditPopup} />
       </Modal>
 
       <Modal
@@ -266,6 +169,7 @@ export const Consultant: React.FC = () => {
                   className="w-[92px] h-[32px] px-[6px] rounded py-[6px] text-[#C5C5C5] border-solid border-[2px] focus:outline-blue-300 border-slate-600 outline-slate-200"
                   type="number"
                   placeholder="10 rows"
+                  min={0}
                 />
               </div>
               <button className="inline-flex pt-[4px] pr-[45px] pb-[4px] pl-[12px] items-center justify-between bg-[#25A6F2] w-[85px] h-[32px] gap-1 rounded-[360px]">

@@ -7,8 +7,10 @@
       "@nx/react/typings/cssmodule.d.ts",
       "@nx/react/typings/image.d.ts",
       "vite/client"
-    ]
+    ],
+    "composite": true
   },
+
   "exclude": [
     "**/*.spec.ts",
     "**/*.test.ts",
