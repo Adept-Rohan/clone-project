@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "image": "libs/client/pages/src/lib/images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 2,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 3,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 4,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 5,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 6,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 7,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 8,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 9,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  },
+  {
+    "id": 10,
+    "image": "../images/Frame296.png",
+    "name": "Rohan Khatiwada",
+    "expertise": "Cardiology",
+    "experience": "4 years"
+  }
+]

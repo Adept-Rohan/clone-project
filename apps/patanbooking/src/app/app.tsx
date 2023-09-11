@@ -1,12 +1,39 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
+import { Consultant } from '@org/consultant';
 
-import NxWelcome from './nx-welcome';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { Department } from '@org/consultant';
+import { Dashboard } from '@org/dashboard';
+
+const Layout = () => {
+  return (
+    <div className="flex">
+      <Dashboard />
+      <Outlet />
+    </div>
+  );
+};
+
+const route = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '/consultant',
+        element: <Consultant />,
+      },
+      {
+        path: '/department',
+        element: <Department />,
+      },
+    ],
+  },
+]);
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="patanbooking" />
+      <RouterProvider router={route} />
     </div>
   );
 }
