@@ -16,9 +16,11 @@ type myFormData = {
 export const Inputmodal = ({
   editData,
   setData,
+  title,
 }: {
   editData: boolean;
   setData: (value: boolean) => void;
+  title: string;
 }) => {
   const imgInput = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -63,10 +65,10 @@ export const Inputmodal = ({
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-[15px] gap-[20px]">
+    <div className="flex flex-col justify-center items-center p-[8px] gap-[20px]">
       <ToastContainer />
-      <div className="text-l font-semibold text-[#042F48] text-center mt-8">
-        Edit Consultant
+      <div className="text-l font-semibold text-[#042F48] text-center">
+        {title}
       </div>
       <div className="flex flex-col items-center gap-1">
         <div
@@ -96,7 +98,7 @@ export const Inputmodal = ({
         </span>
       </div>
       <form onSubmit={handleSubmit(handleData)}>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           <div className="flex gap-1 flex-col">
             <label
               htmlFor="nameInput"
@@ -142,7 +144,7 @@ export const Inputmodal = ({
           </div>
         </div>
 
-        <div className="flex gap-1 mt-[4px]">
+        <div className="flex gap-1 pt-10">
           <button
             type="submit"
             className="w-[170px] h-[40px] bg-[#074E78] text-white font-semibold border-[#074E78] border-[1px] border-solid rounded"

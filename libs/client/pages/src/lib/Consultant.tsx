@@ -95,6 +95,8 @@ export const Consultant: React.FC = () => {
 
   const [openEditPopup, setOpenEditPopup] = useState(false);
 
+  const [openAddPopup, setOpenAddPopup] = useState(false);
+
   const [openDeletePopUp, setOpenDeletePopUp] = useState(false);
 
   return (
@@ -106,7 +108,28 @@ export const Consultant: React.FC = () => {
           setOpenEditPopup(false);
         }}
       >
-        <Inputmodal editData={openEditPopup} setData={setOpenEditPopup} />
+        {openEditPopup ? (
+          <Inputmodal
+            title="Edit Consultant"
+            editData={openEditPopup}
+            setData={setOpenEditPopup}
+          />
+        ) : null}
+      </Modal>
+      <Modal
+        isOpen={openAddPopup}
+        style={CustomModalStyles}
+        onRequestClose={() => {
+          setOpenAddPopup(false);
+        }}
+      >
+        {openAddPopup ? (
+          <Inputmodal
+            title="Add Consultant"
+            editData={openAddPopup}
+            setData={setOpenAddPopup}
+          />
+        ) : null}
       </Modal>
 
       <Modal
@@ -174,7 +197,7 @@ export const Consultant: React.FC = () => {
               </div>
               <button className="inline-flex pt-[4px] pr-[45px] pb-[4px] pl-[12px] items-center justify-between bg-[#25A6F2] w-[85px] h-[32px] gap-1 rounded-[360px]">
                 <img src={Add} alt="" />
-                <p>Add</p>
+                <p onClick={() => setOpenAddPopup(true)}>Add</p>
               </button>
             </div>
           </div>
